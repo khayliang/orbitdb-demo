@@ -2,7 +2,6 @@ import React from "react"
 import { Table, Input } from "antd"
 import styled from "styled-components"
 
-import useOrbitDb from "../../common/hooks/useOrbitDb"
 
 const columns = [
   {
