@@ -1,5 +1,5 @@
 const DEFAULT_IPFS_CONFIG = {
-  start: true,
+  /* start: true,
   relay: {
     enabled: false, // enable relay dialer/listener (STOP)
     hop: {
@@ -30,6 +30,16 @@ const DEFAULT_IPFS_CONFIG = {
         // "/dns4/ipfs-ws.vps.revolunet.com/tcp/443/wss/ipfs/QmSEbJSiV8TXyaG9oBJRs2sJ5sttrNQJvbSeGe7Vt8ZBqt",
         // "/dns4/ws-star1.par.dwebops.pub/tcp/443/wss/p2p-websocket-star",
       ],
+    },
+  }, */
+
+  preload: { enabled: false },
+  repo: "./ipfs",
+  EXPERIMENTAL: { pubsub: true },
+  config: {
+    Bootstrap: [],
+    Addresses: {
+      Swarm: [],
     },
   },
 }

@@ -1,37 +1,29 @@
 import { useEffect, useState } from "react"
-import Logger from "logplease"
 import IPFS from "ipfs"
 
-const logger = Logger.create("useIpfs")
-
-// window.ipfsLoaded hack to keep a global ipfs instance
 const useIpfs = (config) => {
-  const [ipfs, setIpfs] = useState(null)
+  const [node, setNode] = useState(null)
 
   useEffect(() => {
     const ipfsInit = async () => {
-      logger.info("ipfsInit", config)
-      if (typeof window !== "undefined" && window.ipfsLoaded) {
-        setIpfs(window.ipfsLoaded)
-        return
-      }
-
-      const ipfs = await IPFS.create(config)
-      if (typeof window !== "undefined") window.ipfsLoaded = ipfs
-      const peerId = (await ipfs.id()).id
-      logger.info("IPFS: connected as", peerId)
-      setIpfs(ipfs)
+      console.debug("IPFS: Initializing IPFS node", config)
+      const _ipfs = await IPFS.create(config)
+      const peerId = (await _ipfs.id()).id
+      console.debug("IPFS: Connected as", peerId)
+      setNode(_ipfs)
     }
-    ipfsInit()
+
+    if (!node) ipfsInit()
+
     return () => {
-      if (ipfs) {
-        logger.debug("ipfs.stop()")
-        ipfs.stop()
+      if (node) {
+        console.debug("IPFS: Stopping IPFS Node")
+        node.stop()
       }
     }
-  }, [ipfs, config])
+  }, [node, config])
 
-  return [ipfs]
+  return [node]
 }
 
 export default useIpfs

@@ -12,6 +12,13 @@
 		"only-warn"
 	],
 	"rules": {
+		"no-console": [
+			"warn", 
+			{
+				"allow": ["warn", "error", "debug"]
+			}
+		],
+		"no-underscore-dangle": 0,
 		"linebreak-style": ["warn", "unix"],
 		"consistent-return": 0,
 		"react/prop-types": 0,

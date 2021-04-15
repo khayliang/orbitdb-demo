@@ -1,7 +1,11 @@
-import React from "react"
-import { Table, Input } from "antd"
+import React, { useContext } from "react"
+import { Table, Card } from "antd"
 import styled from "styled-components"
+import { orbitContext } from "../../common/context/Orbit"
 
+const TableCard = styled(Card)`
+  height: 100%;
+`
 
 const columns = [
   {
@@ -16,10 +20,13 @@ const columns = [
   },
 ]
 
-export default ({ data = [{ key: "hey", value: "test" }] }) => {
+export default () => {
+  const { records } = useContext(orbitContext)
   return (
     <>
-      <Table columns={columns} dataSource={data} />
+      <TableCard>
+        <Table columns={columns} dataSource={records} />
+      </TableCard>
     </>
   )
 }
