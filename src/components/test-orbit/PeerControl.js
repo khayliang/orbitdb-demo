@@ -5,9 +5,10 @@ import styled from "styled-components"
 import { orbitContext } from "../../common/context/Orbit"
 
 const { Search } = Input
+
 const ControlPanelCard = styled(Card)`
   width: 100%;
-  margin: 5px;
+  margin: 5px 0px;
 `
 const DataInput = styled(Search)`
   margin: 7px 5px;

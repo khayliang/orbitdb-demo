@@ -23,7 +23,12 @@ export default ({ records }) => {
   return (
     <>
       <TableCard>
-        <Table columns={columns} dataSource={records} />
+        <Table
+          columns={columns}
+          dataSource={records}
+          scroll={{ y: 150 }}
+          pagination={false}
+        />
       </TableCard>
     </>
   )
