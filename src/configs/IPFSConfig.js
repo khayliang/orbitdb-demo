@@ -33,13 +33,20 @@ const DEFAULT_IPFS_CONFIG = {
     },
   }, */
 
-  preload: { enabled: false },
+  // preload: { enabled: false },
+  relay: {
+    enabled: true,
+    hop: {
+      enabled: true,
+      active: true,
+    },
+  },
   repo: "./ipfs",
   EXPERIMENTAL: { pubsub: true },
   config: {
     Bootstrap: [],
     Addresses: {
-      Swarm: [],
+      Swarm: ["/ip4/127.0.0.1/tcp/13579/ws/p2p-webrtc-star/"],
     },
   },
 }

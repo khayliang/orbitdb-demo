@@ -1,8 +1,6 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Input, Card, Button, Form } from "antd"
 import styled from "styled-components"
-
-import { orbitContext } from "../../common/context/Orbit"
 
 const DataInput = styled(Input)`
   margin: 7px 5px;
@@ -12,8 +10,7 @@ const SubmitButton = styled(Button)`
   margin: 7px 5px;
 `
 
-export default () => {
-  const { call } = useContext(orbitContext)
+export default ({ call }) => {
   const submitData = async (values) => {
     await call({
       type: "ADD_NEW_DOCUMENT",

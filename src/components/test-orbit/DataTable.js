@@ -1,7 +1,6 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Table, Card } from "antd"
 import styled from "styled-components"
-import { orbitContext } from "../../common/context/Orbit"
 
 const TableCard = styled(Card)`
   height: 100%;
@@ -20,8 +19,7 @@ const columns = [
   },
 ]
 
-export default () => {
-  const { records } = useContext(orbitContext)
+export default ({ records }) => {
   return (
     <>
       <TableCard>
